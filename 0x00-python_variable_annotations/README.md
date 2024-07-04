@@ -1,378 +1,106 @@
-# 0x00. Python - Variable Annotations
-| `Python` | `Back-end` |
 
-## Concepts
+0x00. Python - Variable Annotations
+Overview
+This project is part of the alx-backend-python repository and focuses on understanding and utilizing type annotations in Python. The project covers various aspects of type annotations, including function signatures, variable types, and duck typing. It also emphasizes the use of mypy for validating code.
 
-For this project, we expect you to look at this concept:
+Learning Objectives
+By the end of this project, you will be able to:
 
-- [`Advanced Python`](./Advanced_Python.md)
+Understand and apply type annotations in Python 3
+Specify function signatures and variable types using type annotations
+Explain the concept of duck typing
+Validate Python code using mypy
 
-![](./images/meme1.png)
+Requirements
+Allowed editors: vi, vim, emacs
+Python version: python3 (version 3.7)
+Files should end with a new line
+The first line of all files should be #!/usr/bin/env python3
+Code should follow the pycodestyle style (version 2.5)
+Files must be executable
+Modules, classes, and functions should have documentation
 
-## Resources
+Tasks
+0. Basic annotations - add
+Write a type-annotated function add that takes two floats a and b and returns their sum as a float.
 
-**Read or watch:**
-- [Python 3 typing documentation](https://intranet.alxswe.com/rltoken/5j0OtdWh36_HVAHKJX2gaA)
-- [MyPy cheat sheet](https://intranet.alxswe.com/rltoken/Eud-nrUG7x3iT6JD2Sas-g)
+File: 0-add.py
 
-## Learning Objectives
+1. Basic annotations - concat
+Write a type-annotated function concat that takes two strings str1 and str2 and returns their concatenated string.
 
-**General**
+File: 1-concat.py
 
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+2. Basic annotations - floor
+Write a type-annotated function floor that takes a float n and returns the floor of the float.
 
-- Type annotations in Python 3
-- How you can use type annotations to specify function signatures and variable types
-- Duck typing
-- How to validate your code with `mypy`
+File: 2-floor.py
 
-## Requirements
+3. Basic annotations - to string
+Write a type-annotated function to_str that takes a float n and returns the string representation of the float.
 
-**General**
+File: 3-to_str.py
 
-- Allowed editors: `vi`, `vim`, `emacs`
-- All your files will be interpreted/compiled on Ubuntu 18.04 LTS using `python3` (version 3.7)
-- All your files should end with a new line
-- The first line of all your files should be exactly `#!/usr/bin/env python3`
-- A `README.md` file, at the root of the folder of the project, is mandatory
-- Your code should use the `pycodestyle` style (version 2.5.)
-- All your files must be executable
-- The length of your files will be tested using `wc`
-- All your modules should have a documentation (`python3 -c 'print(__import__("my_module").__doc__)'`)
-All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-- All your functions (inside and outside a class) should have a documentation (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
-- A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
-
-## Tasks
-
-### 0. Basic annotations - add
-
-Write a type-annotated function `add` that takes a float `a` and a float `b` as arguments and returns their sum as a float.
-
-```
-bob@dylan:~$ cat 0-main.py
-#!/usr/bin/env python3
-add = __import__('0-add').add
-
-print(add(1.11, 2.22) == 1.11 + 2.22)
-print(add.__annotations__)
-
-bob@dylan:~$ ./0-main.py
-True
-{'a':  <class 'float'>, 'b': <class 'float'>, 'return': <class 'float'>}
-```
-
-solution - [0-add.py](./0-add.py)
-
-### 1. Basic annotations - concat
-
-Write a type-annotated function `concat` that takes a string `str1` and a string `str2` as arguments and returns a concatenated string
-
-```
-bob@dylan:~$ cat 1-main.py
-#!/usr/bin/env python3
-concat = __import__('1-concat').concat
-
-str1 = "egg"
-str2 = "shell"
-
-print(concat(str1, str2) == "{}{}".format(str1, str2))
-print(concat.__annotations__)
-
-bob@dylan:~$ ./1-main.py
-True
-{'str1': <class 'str'>, 'str2': <class 'str'>, 'return': <class 'str'>}
-```
-
-solution - [1-concat.py](./1-concat.py)
-
-### 2. Basic annotations - floor
-
-Write a type-annotated function `floor` which takes a float n as argument and returns the floor of the float.
-
-```
-bob@dylan:~$ cat 2-main.py
-#!/usr/bin/env python3
-
-import math
-
-floor = __import__('2-floor').floor
-
-ans = floor(3.14)
-
-print(ans == math.floor(3.14))
-print(floor.__annotations__)
-print("floor(3.14) returns {}, which is a {}".format(ans, type(ans)))
-
-bob@dylan:~$ ./2-main.py
-True
-{'n': <class 'float'>, 'return': <class 'int'>}
-floor(3.14) returns 3, which is a <class 'int'>
-```
-
-solution - [2-floor.py](./2-floor.py)
-
-### 3. Basic annotations - to string
-
-Write a type-annotated function `to_str` that takes a float `n` as argument and returns the string representation of the float.
-
-```
-bob@dylan:~$ cat 3-main.py
-#!/usr/bin/env python3
-to_str = __import__('3-to_str').to_str
-
-pi_str = to_str(3.14)
-print(pi_str == str(3.14))
-print(to_str.__annotations__)
-print("to_str(3.14) returns {} which is a {}".format(pi_str, type(pi_str)))
-
-bob@dylan:~$ ./3-main.py
-True
-{'n': <class 'float'>, 'return': <class 'str'>}
-to_str(3.14) returns 3.14, which is a <class 'str'>
-```
-
-solution - [3-to_str.py](./3-to_str.py)
-
-### 4. Define variables
-
+4. Define variables
 Define and annotate the following variables with the specified values:
 
-- `a`, an integer with a value of 1
-- `pi`, a float with a value of 3.14
-- `i_understand_annotations`, a boolean with a value of True
-- `school`, a string with a value of “Holberton”
+a: an integer with a value of 1
+pi: a float with a value of 3.14
+i_understand_annotations: a boolean with a value of True
+school: a string with a value of "Holberton"
+File: 4-define_variables.py
 
-```
-bob@dylan:~$ cat 4-main.py
-#!/usr/bin/env python3
+5. Complex types - list of floats
+Write a type-annotated function sum_list that takes a list of floats and returns their sum as a float.
 
-a = __import__('4-define_variables').a
-pi = __import__('4-define_variables').pi
-i_understand_annotations = __import__('4-define_variables').i_understand_annotations
-school = __import__('4-define_variables').school
+File: 5-sum_list.py
 
-print("a is a {} with a value of {}".format(type(a), a))
-print("pi is a {} with a value of {}".format(type(pi), pi))
-print("i_understand_annotations is a {} with a value of {}".format(type(i_understand_annotations), i_understand_annotations))
-print("school is a {} with a value of {}".format(type(school), school))
+6. Complex types - mixed list
+Write a type-annotated function sum_mixed_list that takes a list of integers and floats and returns their sum as a float.
 
-bob@dylan:~$ ./4-main.py
-a is a <class 'int'> with a value of 1
-pi is a <class 'float'> with a value of 3.14
-i_understand_annotations is a <class 'bool'> with a value of True
-school is a <class 'str'> with a value of Holberton
-```
+File: 6-sum_mixed_list.py
 
-solution - [4-define_variables.py](./4-define_variables.py)
+7. Complex types - string and int/float to tuple
+Write a type-annotated function to_kv that takes a string k and an int or float v and returns a tuple. The first element of the tuple is the string k, and the second element is the square of the int/float v as a float.
 
-### 5. Complex types - list of floats
+File: 7-to_kv.py
 
-Write a type-annotated function `sum_list` which takes a list `input_list` of floats as argument and returns their sum as a float.
+8. Complex types - functions
+Write a type-annotated function make_multiplier that takes a float multiplier and returns a function that multiplies a float by multiplier.
 
-```
-bob@dylan:~$ cat 5-main.py
-#!/usr/bin/env python3
+File: 8-make_multiplier.py
 
-sum_list = __import__('5-sum_list').sum_list
+9. Let's duck type an iterable object
+Annotate the function element_length with appropriate types.
 
-floats = [3.14, 1.11, 2.22]
-floats_sum = sum_list(floats)
-print(floats_sum == sum(floats))
-print(sum_list.__annotations__)
-print("sum_list(floats) returns {} which is a {}".format(floats_sum, type(floats_sum)))
+File: 9-element_length.py
 
-bob@dylan:~$ ./5-main.py
-True
-{'input_list': typing.List[float], 'return': <class 'float'>}
-sum_list(floats) returns 6.470000000000001 which is a <class 'float'>
-```
+10. Duck typing - first element of a sequence
+Augment the function safe_first_element with correct duck-typed annotations.
 
-solution - [5-sum_list.py](./5-sum_list.py)
+File: 100-safe_first_element.py
 
-### 6. Complex types - mixed list
+11. More involved type annotations
+Add type annotations to the function safely_get_value.
 
-Write a type-annotated function `sum_mixed_list` which takes a list `mxd_lst` of integers and floats and returns their sum as a float.
+File: 101-safely_get_value.py
 
-```
-bob@dylan:~$ cat 6-main.py
-#!/usr/bin/env python3
+12. Type Checking
+Use mypy to validate the code in 102-type_checking.py and apply any necessary changes.
 
-sum_mixed_list = __import__('6-sum_mixed_list').sum_mixed_list
+File: 102-type_checking.py
 
-print(sum_mixed_list.__annotations__)
-mixed = [5, 4, 3.14, 666, 0.99]
-ans = sum_mixed_list(mixed)
-print(ans == sum(mixed))
-print("sum_mixed_list(mixed) returns {} which is a {}".format(ans, type(ans)))
+Resources
+Python 3 typing documentation
+MyPy cheat sheet
 
-bob@dylan:~$ ./6-main.py
-{'mxd_lst': typing.List[typing.Union[int, float]], 'return': <class 'float'>}
-True
-sum_mixed_list(mixed) returns 679.13 which is a <class 'float'>
-```
+Usage
+Clone the repository:
 
-solution - [6-sum_mixed_list.py](./6-sum_mixed_list.py)
+git clone git@github.com:admens2008/alx-backend-python.git
 
-### 7. Complex types - string and int/float to tuple
+Navigate to the project directory:
 
-Write a type-annotated function `to_kv` that takes a string `k` and an int OR float `v` as arguments and returns a tuple. The first element of the tuple is the string `k`. The second element is the square of the int/float `v` and should be annotated as a float.
+cd alx-backend-python/0x00-python_variable_annotations
 
-```
-bob@dylan:~$ cat 7-main.py
-#!/usr/bin/env python3
-
-to_kv = __import__('7-to_kv').to_kv
-
-print(to_kv.__annotations__)
-print(to_kv("eggs", 3))
-print(to_kv("school", 0.02))
-
-bob@dylan:~$ ./7-main.py
-{'k': <class 'str'>, 'v': typing.Union[int, float], 'return': typing.Tuple[str, float]}
-('eggs', 9)
-('school', 0.0004)
-```
-
-solution - [7-to_kv.py](./7-to_kv.py)
-
-### 8. Complex types - functions
-
-Write a type-annotated function `make_multiplier` that takes a float `multiplier` as argument and returns a function that multiplies a float by `multiplier`.
-
-```
-bob@dylan:~$ cat 8-main.py
-#!/usr/bin/env python3
-
-make_multiplier = __import__('8-make_multiplier').make_multiplier
-print(make_multiplier.__annotations__)
-fun = make_multiplier(2.22)
-print("{}".format(fun(2.22)))
-
-bob@dylan:~$ ./8-main.py
-{'multiplier': <class 'float'>, 'return': typing.Callable[[float], float]}
-4.928400000000001
-```
-
-solution - [8-make_multiplier.py](./8-make_multiplier.py)
-
-### 9. Let's duck type an iterable object
-
-Annotate the below function’s parameters and return values with the appropriate types
-
-```python
-def element_length(lst):
-    return [(i, len(i)) for i in lst]
-```
-
-```
-bob@dylan:~$ cat 9-main.py 
-#!/usr/bin/env python3
-
-element_length =  __import__('9-element_length').element_length
-
-print(element_length.__annotations__)
-
-bob@dylan:~$ ./9-main.py 
-{'lst': typing.Iterable[typing.Sequence], 'return': typing.List[typing.Tuple[typing.Sequence, int]]}
-```
-
-solution - [9-element_length.py](./9-element_length.py)
-
-### 10. Duck typing - first element of a sequence
-
-Augment the following code with the correct duck-typed annotations:
-
-```
-# The types of the elements of the input are not know
-def safe_first_element(lst):
-    if lst:
-        return lst[0]
-    else:
-        return None
-```
-
-```
-bob@dylan:~$ cat 100-main.py 
-#!/usr/bin/env python3
-
-safe_first_element =  __import__('100-safe_first_element').safe_first_element
-
-print(safe_first_element.__annotations__)
-
-bob@dylan:~$ ./100-main.py 
-{'lst': typing.Sequence[typing.Any], 'return': typing.Union[typing.Any, NoneType]}
-```
-
-solution - [100-safe_first_element.py](,/100-safe_first_element.py)
-
-### 11. More involved type annotations
-
-Given the parameters and the return values, add type annotations to the function
-
-Hint: look into TypeVar
-
-```python
-def safely_get_value(dct, key, default = None):
-    if key in dct:
-        return dct[key]
-    else:
-        return default
-```
-
-```
-bob@dylan:~$ cat 101-main.py 
-#!/usr/bin/env python3
-
-safely_get_value = __import__('101-safely_get_value').safely_get_value
-annotations = safely_get_value.__annotations__
-
-print("Here's what the mappings should look like")
-for k, v in annotations.items():
-    print( ("{}: {}".format(k, v)))
-
-bob@dylan:~$ ./101-main.py 
-Here's what the mappings should look like
-dct: typing.Mapping
-key: typing.Any
-default: typing.Union[~T, NoneType]
-return: typing.Union[typing.Any, ~T]
-```
-
-solution - [101-safely_get_value.py](./101-safely_get_value.py)
-
-### 12. Type Checking
-
-Use `mypy` to validate the following piece of code and apply any necessary changes.
-
-```python
-def zoom_array(lst: Tuple, factor: int = 2) -> Tuple:
-    zoomed_in: Tuple = [
-        item for item in lst
-        for i in range(factor)
-    ]
-    return zoomed_in
-
-
-array = [12, 72, 91]
-
-zoom_2x = zoom_array(array)
-
-zoom_3x = zoom_array(array, 3.0)
-```
-
-```
-bob@dylan:~$ mypy 102-type_checking.py
-Success: no issues found in 1 source file
-bob@dylan:~$ cat 102-main.py 
-#!/usr/bin/env python3
-
-zoom_array =  __import__('102-type_checking').zoom_array
-
-print(zoom_array.__annotations__)
-
-bob@dylan:~$ ./102-main.py 
-{'lst': typing.Tuple, 'factor': <class 'int'>, 'return': typing.List}
-```
-
-solution - [102-type_checking.py](./102-type_checking.py)
+Run the Python scripts according to the tasks.
